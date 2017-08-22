@@ -750,7 +750,7 @@ type File struct {
 func (s *SuperAgent) SendFile(file interface{}, args ...string) *SuperAgent {
 
 	filename := ""
-	fieldname := "file"
+	fieldname := ""
 
 	if len(args) >= 1 && len(args[0]) > 0 {
 		filename = strings.TrimSpace(args[0])
@@ -758,7 +758,7 @@ func (s *SuperAgent) SendFile(file interface{}, args ...string) *SuperAgent {
 	if len(args) >= 2 && len(args[1]) > 0 {
 		fieldname = strings.TrimSpace(args[1])
 	}
-	if fieldname == "file" || fieldname == "" {
+	if fieldname == "" {
 		fieldname = "file" + strconv.Itoa(len(s.FileData)+1)
 	}
 
